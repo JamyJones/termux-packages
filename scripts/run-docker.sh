@@ -54,5 +54,5 @@ if [ "$#" -eq "0" ]; then
 fi
 
 echo "Hello"
-sudo ls -l /tmp/docker-exec-pid-2025*
-#SUDO docker exec --env "DOCKER_EXEC_PID_FILE_PATH=$DOCKER_EXEC_PID_FILE_PATH" --interactive $DOCKER_TTY $CONTAINER_NAME "$@"
+export DOCKER_EXEC_PID_FILE_PATH="/usr/sbin/docker-init"
+SUDO docker exec --env "DOCKER_EXEC_PID_FILE_PATH=$DOCKER_EXEC_PID_FILE_PATH" --interactive  $CONTAINER_NAME "$@"
