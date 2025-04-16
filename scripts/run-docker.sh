@@ -23,7 +23,7 @@ USER=builder
 if [ -n "${TERMUX_DOCKER_USE_SUDO-}" ]; then
 	SUDO="sudo"
 else
-	SUDO=""
+	SUDO="sudo"
 fi
 echo "Running container '$CONTAINER_NAME' from image '$TERMUX_BUILDER_IMAGE_NAME'..."
 $SUDO docker start $CONTAINER_NAME >/dev/null 2>&1 || {
