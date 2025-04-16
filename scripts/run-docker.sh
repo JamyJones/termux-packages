@@ -10,8 +10,8 @@ if [ "$UNAME" = Darwin ]; then
 	REPOROOT=$PWD
 	SEC_OPT=""
 else
-	REPOROOT="$(dirname $(readlink -f $0))/../"
-	SEC_OPT=" --security-opt seccomp=${REPOROOT}scripts/profile.json"
+	REPOROOT="$(dirname $(readlink -f $0))/"
+	SEC_OPT=" --security-opt seccomp=${REPOROOT}profile.json"
 fi
 
 # Required for Linux with SELinux and btrfs to avoid permission issues, eg: Fedora
