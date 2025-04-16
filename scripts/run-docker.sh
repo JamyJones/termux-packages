@@ -23,7 +23,6 @@ docker start $CONTAINER_NAME > /dev/null 2> /dev/null || {
 		--detach \
 		--name $CONTAINER_NAME \
 		--volume $REPOROOT:$HOME/termux-packages \
-		 \
 		$TERMUX_BUILDER_IMAGE_NAME
     if [ "$UNAME" != Darwin ]; then
 	if [ $(id -u) -ne 1000 -a $(id -u) -ne 0 ]
@@ -36,9 +35,8 @@ docker start $CONTAINER_NAME > /dev/null 2> /dev/null || {
 	fi
     fi
 }
-
-if [ "$#" -eq  "0" ]; then
-	docker exec --interactive  $CONTAINER_NAME bash
-else
-	docker exec --interactive  $CONTAINER_NAME $@
+if [ "$#" -eq "0" ]; then
+	set -- bash
 fi
+
+$SUDO docker exec --env "DOCKER_EXEC_PID_FILE_PATH=$DOCKER_EXEC_PID_FILE_PATH" --interactive  $CONTAINER_NAME "$@"
