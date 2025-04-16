@@ -11,7 +11,7 @@ if [ "$UNAME" = Darwin ]; then
 	SEC_OPT=""
 else
 	REPOROOT="$(dirname $(readlink -f $0))/../"
-	SEC_OPT=" --security-opt seccomp=$REPOROOT/scripts/profile.json"
+	SEC_OPT=" --security-opt seccomp=${REPOROOT}scripts/profile.json"
 fi
 
 # Required for Linux with SELinux and btrfs to avoid permission issues, eg: Fedora
