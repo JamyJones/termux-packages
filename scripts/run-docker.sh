@@ -22,7 +22,7 @@ docker start $CONTAINER_NAME > /dev/null 2> /dev/null || {
 	docker run \
 		--detach \
 		--name $CONTAINER_NAME \
-		--volume $REPOROOT:$HOME/termux-packages
+		--volume $REPOROOT:$HOME/termux-packages \
 		$TERMUX_BUILDER_IMAGE_NAME
     if [ "$UNAME" != Darwin ]; then
 	if [ $(id -u) -ne 1000 -a $(id -u) -ne 0 ]
