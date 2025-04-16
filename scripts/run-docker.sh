@@ -53,6 +53,6 @@ if [ "$#" -eq "0" ]; then
 	set -- bash
 fi
 
-echo "Hello"
-export DOCKER_EXEC_PID_FILE_PATH="/usr/sbin/docker-init"
-$SUDO docker exec --env "DOCKER_EXEC_PID_FILE_PATH=$DOCKER_EXEC_PID_FILE_PATH" --interactive  $CONTAINER_NAME "$@"
+#echo "Hello"
+#export DOCKER_EXEC_PID_FILE_PATH="/usr/sbin/docker-init"
+#$SUDO docker exec --env "DOCKER_EXEC_PID_FILE_PATH=$DOCKER_EXEC_PID_FILE_PATH" --interactive  $CONTAINER_NAME "$@"
