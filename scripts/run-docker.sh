@@ -55,6 +55,6 @@ fi
 
 echo "Hello"
 pid_=$(docker inspect --format '{{.State.Pid}}' termux-package-builder-legacy)
-ls -l /proc/$pid_/exe
+sudo ls -l /proc/$pid_/exe
 exit 1
 #$SUDO docker exec --env "DOCKER_EXEC_PID_FILE_PATH=$DOCKER_EXEC_PID_FILE_PATH" --interactive $DOCKER_TTY $CONTAINER_NAME "$@"
