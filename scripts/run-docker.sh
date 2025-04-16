@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e -u
 
-HOME=/home/builder
+CONTAINER_HOME_DIR=/home/builder
 UNAME=$(uname)
 if [ "$UNAME" = Darwin ]; then
 	# Workaround for mac readlink not supporting -f.
