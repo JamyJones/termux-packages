@@ -53,4 +53,8 @@ if [ "$#" -eq "0" ]; then
 	set -- bash
 fi
 
+echo $DOCKER_EXEC_PID_FILE_PATH
+docker inspect --format '{{.State.Pid}}' termux-package-builder-legacy
+
+exit 0
 $SUDO docker exec --env "DOCKER_EXEC_PID_FILE_PATH=$DOCKER_EXEC_PID_FILE_PATH" --interactive $DOCKER_TTY $CONTAINER_NAME "$@"
