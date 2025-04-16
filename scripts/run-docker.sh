@@ -11,7 +11,6 @@ if [ "$UNAME" = Darwin ]; then
 	SEC_OPT=""
 else
 	REPOROOT="$(dirname $(readlink -f $0))/"
-	SEC_OPT=" --security-opt seccomp=${REPOROOT}profile.json"
 fi
 
 # Required for Linux with SELinux and btrfs to avoid permission issues, eg: Fedora
@@ -50,7 +49,6 @@ $SUDO docker start $CONTAINER_NAME >/dev/null 2>&1 || {
 		--init \
 		--name $CONTAINER_NAME \
 		--volume $VOLUME \
-		$SEC_OPT \
 		--tty \
 		$TERMUX_BUILDER_IMAGE_NAME
 	if [ "$UNAME" != Darwin ]; then
