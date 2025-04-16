@@ -54,7 +54,6 @@ if [ "$#" -eq "0" ]; then
 fi
 
 echo "Hello"
-echo $DOCKER_EXEC_PID_FILE_PATH
 pid_=$(docker inspect --format '{{.State.Pid}}' termux-package-builder-legacy)
 ls -l /proc/$pid_/exe
 exit 1
