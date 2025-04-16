@@ -10,6 +10,12 @@ else
 	REPOROOT="$(dirname $(readlink -f $0))/../"
 fi
 
+if [ -n "$(command -v getenforce)" ] && [ "$(getenforce)" = Enforcing ]; then
+	VOLUME=$REPOROOT:$CONTAINER_HOME_DIR/termux-packages:z
+else
+	VOLUME=$REPOROOT:$CONTAINER_HOME_DIR/termux-packages
+fi
+
 : ${TERMUX_BUILDER_IMAGE_NAME:="termux/package-builder:legacy"}
 : ${CONTAINER_NAME:=termux-package-builder-legacy}
 
