@@ -27,6 +27,7 @@ termux_step_pre_configure() {
 }
 
 termux_step_post_make_install() {
+  export XCFLAGS="-llog"
 	TERMUX_PKG_EXTRA_MAKE_ARGS="${TERMUX_PKG_EXTRA_MAKE_ARGS/shared=yes/}"
 	termux_step_make
 	install -Dm600 -t $TERMUX_PREFIX/lib build/release*/libmupdf{-third,}.a
