@@ -17,7 +17,7 @@ COPY ./properties.sh ./setup-android-sdk.sh ./setup-ubuntu.sh /tmp/termux-packag
 
 # Setup needed packages and the Android SDK and NDK:
 RUN apt-get update -y && apt-get -y upgrade
-RUN apt-get install sudo -y
+RUN apt-get install -y sudo adduser
 RUN adduser --disabled-password --shell /bin/bash --gecos "" builder && \
 	echo "builder ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/builder && \
 	chmod 0440 /etc/sudoers.d/builder && \
