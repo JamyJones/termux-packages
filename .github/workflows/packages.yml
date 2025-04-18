@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: |
-        john_package_name="mupdf"
+        john_package_name="pdfmium_viewer"
         sudo ./scripts/run-docker.sh bash -c "sudo ./build-package.sh -o ./output -I -a arm $john_package_name"
     - name: release
       run: |
@@ -19,3 +19,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.TK }}
       shell: bash
+
