@@ -55,4 +55,4 @@ fi
 
 #echo "Hello"
 #export DOCKER_EXEC_PID_FILE_PATH="/usr/sbin/docker-init"
-#$SUDO docker exec --env "DOCKER_EXEC_PID_FILE_PATH=$DOCKER_EXEC_PID_FILE_PATH" --interactive  $CONTAINER_NAME "$@"
+$SUDO docker exec --interactive  $CONTAINER_NAME "$@"
