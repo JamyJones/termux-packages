@@ -1,0 +1,23 @@
+name: update Docker image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Build-Docker-Image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo files
+        uses: actions/checkout@v4
+
+      - name: Build the image
+        run: |
+          cd scripts
+          docker build -t johnel/package-builder:legacy .
+      - name: Authenticate With Dockerhub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Push to dockerhub
+        run: docker push johnel/package-builder:legacy
