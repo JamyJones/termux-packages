@@ -37,3 +37,4 @@ curl -LO "https://github.com/JamyJones/termux-packages/releases/download/33.0.0/
 dpkg -x mupdf-static_1.24.10_arm.deb mupdf-static
 dpkg -x mupdf_1.24.10_arm.deb mupdf-static
 cp -r mupdf-static/data/data/com.termux/files/usr/* $TERMUX_PREFIX
+
