@@ -14,6 +14,7 @@ TERMUX_PKG_AUTO_UPDATE=true
 
 TERMUX_INCLUDE_DIR="$TERMUX_PREFIX/include"
 TERMUX_LIB_DIR="$TERMUX_PREFIX/lib"
+mkdir -p $TERMUX_INCLUDE_DIR  $TERMUX_LIB_DIR
 #download pdfium-no-v8
 install_incase_pdfmium(){
 curl -L "https://github.com/bblanchon/pdfium-binaries/releases/latest/download/pdfium-android-arm.tgz" -o pdfium-android-arm.tgz
