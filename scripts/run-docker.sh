@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e -u
 
-CONTAINER_HOME_DIR=/home/android5
+CONTAINER_HOME_DIR=/home/builder
 UNAME=$(uname)
 if [ "$UNAME" = Darwin ]; then
 	# Workaround for mac readlink not supporting -f.
@@ -11,13 +11,13 @@ else
 fi
 
 if [ -n "$(command -v getenforce)" ] && [ "$(getenforce)" = Enforcing ]; then
-	VOLUME=$REPOROOT:$CONTAINER_HOME_DIR/termux-packages:z
+	VOLUME=$PWD:$CONTAINER_HOME_DIR/termux-packages
 else
-	VOLUME=$REPOROOT:$CONTAINER_HOME_DIR/termux-packages
+	VOLUME=$PWD:$CONTAINER_HOME_DIR/termux-packages
 fi
 
 : ${TERMUX_BUILDER_IMAGE_NAME:="termux/package-builder:legacy"}
-: ${CONTAINER_NAME:=termux-package-builder-legacy}
+: ${CONTAINER_NAME:=termux-package-builder-legacy-android5}
 
 USER=builder
 if [ -n "${TERMUX_DOCKER_USE_SUDO-}" ]; then
