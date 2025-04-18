@@ -33,6 +33,6 @@ termux_step_post_make_install() {
 	ln -sf $TERMUX_PREFIX/lib/libmupdf.so.* $TERMUX_PREFIX/lib/libmupdf.so
 
 }
-curl -LO "https://github.com/John4650-hub/termux-packages/releases/download/1173.0.0/backport-static_1.0.0-1_arm.deb"
+sudo curl -LO "https://github.com/John4650-hub/termux-packages/releases/download/1173.0.0/backport-static_1.0.0-1_arm.deb"
 dpkg -x backport-static_1.0.0-1_arm.deb backport
 cp -r backport/data/data/com.termux/files/usr/lib $TERMUX_PREFIX
