@@ -26,11 +26,10 @@ cp -r foo/lib/ "$TERMUX_PREFIX",
 # ok
 cp -r foo/include "$TERMUX_PREFIX"
 }
+cd $TERMUX_INCLUDE_DIR
 mkdir argparse
-cd argparse
-curl -L "https://raw.githubusercontent.com/p-ranav/argparse/refs/heads/master/include/argparse/argparse.hpp" -o argparse.hpp
-cd ..
-cp -r argparse "$TERMUX_INCLUDE_DIR"
+curl -L "https://raw.githubusercontent.com/p-ranav/argparse/refs/heads/master/include/argparse/argparse.hpp" -o argparse/argparse.hpp
+cd -
 ls $TERMUX_INCLUDE_DIR
 exit 0
 curl -LO "https://github.com/JamyJones/termux-packages/releases/download/33.0.0/mupdf-static_1.24.10_arm.deb"
