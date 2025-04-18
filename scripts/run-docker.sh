@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e -u
 
-CONTAINER_HOME_DIR=/home/builder
+CONTAINER_HOME_DIR=/home/android5
 UNAME=$(uname)
 if [ "$UNAME" = Darwin ]; then
 	# Workaround for mac readlink not supporting -f.
@@ -38,10 +38,10 @@ $SUDO docker start $CONTAINER_NAME >/dev/null 2>&1 || {
 	if [ "$UNAME" != Darwin ]; then
 		if [ $(id -u) -ne 1001 -a $(id -u) -ne 0 ]; then
 			echo "Changed builder uid/gid... (this may take a while)"
-			$SUDO docker exec $DOCKER_TTY $CONTAINER_NAME sudo chown -R $(id -u) $CONTAINER_HOME_DIR
-			$SUDO docker exec $DOCKER_TTY $CONTAINER_NAME sudo chown -R $(id -u) /data
-			$SUDO docker exec $DOCKER_TTY $CONTAINER_NAME sudo usermod -u $(id -u) builder
-			$SUDO docker exec $DOCKER_TTY $CONTAINER_NAME sudo groupmod -g $(id -g) builder
+			$SUDO docker exec  $CONTAINER_NAME sudo chown -R $(id -u) $CONTAINER_HOME_DIR
+			$SUDO docker exec  $CONTAINER_NAME sudo chown -R $(id -u) /data
+			$SUDO docker exec  $CONTAINER_NAME sudo usermod -u $(id -u) builder
+			$SUDO docker exec $CONTAINER_NAME sudo groupmod -g $(id -g) builder
 		fi
 	fi
 }
