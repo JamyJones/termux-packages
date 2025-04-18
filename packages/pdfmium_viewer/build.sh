@@ -32,7 +32,6 @@ mkdir argparse
 curl -L "https://raw.githubusercontent.com/p-ranav/argparse/refs/heads/master/include/argparse/argparse.hpp" -o argparse/argparse.hpp
 cd -
 ls $TERMUX_INCLUDE_DIR
-exit 0
 curl -LO "https://github.com/JamyJones/termux-packages/releases/download/33.0.0/mupdf-static_1.24.10_arm.deb"
 curl -LO "https://github.com/JamyJones/termux-packages/releases/download/33.0.0/mupdf_1.24.10_arm.deb"
 dpkg -x mupdf-static_1.24.10_arm.deb mupdf-static
