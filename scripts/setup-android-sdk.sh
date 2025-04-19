@@ -52,17 +52,7 @@ if [ ! -d "$NDK" ]; then
 	# Remove unused parts
 	rm -Rf android-ndk-r$TERMUX_NDK_VERSION/sources/cxx-stl/system
 fi
-
-if [ -x "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
-	SDK_MANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
-elif [ -x "$ANDROID_HOME/cmdline-tools/bin/sdkmanager" ]; then
-	SDK_MANAGER="$ANDROID_HOME/cmdline-tools/bin/sdkmanager"
-else
-	echo "ERROR: no usable sdkmanager found in $ANDROID_HOME" >&2
-	echo "Checking other possible paths: (empty if not found)" >&2
-	find "$ANDROID_HOME" -type f -name sdkmanager >&2
-	exit 1
-fi
+SDK_MANAGER="$ANDROID_HOME/android-sdk-9123335/cmdline-tools/bin/sdkmanager"
 
 echo "INFO: Using sdkmanager ... $SDK_MANAGER"
 echo "INFO: Using NDK ... $NDK"
@@ -73,6 +63,4 @@ yes | $SDK_MANAGER --sdk_root="$ANDROID_HOME" --licenses
 yes | $SDK_MANAGER --sdk_root="$ANDROID_HOME" \
 		"platform-tools" \
 		"build-tools;${TERMUX_ANDROID_BUILD_TOOLS_VERSION}" \
-		"platforms;android-23" \
-		"platforms;android-22" \
-		"platforms;android-21"
+		"platforms;android-23"
