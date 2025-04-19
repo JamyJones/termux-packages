@@ -36,7 +36,8 @@ ls $TERMUX_INCLUDE_DIR
 curl -LO "https://github.com/JamyJones/termux-packages/releases/download/33.0.0/mupdf-static_1.24.10_arm.deb"
 curl -LO "https://github.com/JamyJones/termux-packages/releases/download/33.0.0/mupdf_1.24.10_arm.deb"
 dpkg -x mupdf-static_1.24.10_arm.deb mupdf-static
-dpkg -x mupdf_1.24.10_arm.deb mupdf-static
+dpkg -x mupdf_1.24.10_arm.deb mupdf
+cp -r mupdf/data/data/com.termux/files/usr/include/* $TERMUX_INCLUDE_DIR
 cp -r mupdf-static/data/data/com.termux/files/usr/* $TERMUX_PREFIX
 
 
