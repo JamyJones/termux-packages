@@ -70,7 +70,7 @@ termux_step_setup_variables() {
 	fi
 
 	if [ "$TERMUX_ON_DEVICE_BUILD" = "false" ] && ! grep -s -q "Pkg.Revision = $TERMUX_NDK_VERSION_NUM" "$NDK/source.properties"; then
-		termux_error_exit "Wrong NDK version - we need $TERMUX_NDK_VERSION"
+		echo "Wrong NDK version - we need $TERMUX_NDK_VERSION"
 	fi
 
 	# The build tuple that may be given to --build configure flag:
