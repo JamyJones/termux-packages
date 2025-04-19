@@ -16,7 +16,7 @@ jobs:
         sudo ./scripts/run-docker.sh bash -c "sudo ./build-package.sh -o ./output -I -a arm $john_package_name"
     - name: release
       run: |
-        echo "donei"
+        echo "done"
         gh release create ${{ github.run_number}}.0.0 ./output/*
       env:
         GITHUB_TOKEN: ${{ secrets.TK }}
