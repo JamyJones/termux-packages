@@ -6,9 +6,7 @@ set -e -u
 
 # Install desired parts of the Android SDK:
 . $(cd "$(dirname "$0")"; pwd)/properties.sh
-. $(cd "$(dirname "$0")"; pwd)/build/termux_download.sh
-
-
+TERMUX_SDK_REVISION=9123335
 ANDROID_SDK_FILE=commandlinetools-linux-${TERMUX_SDK_REVISION}_latest.zip
 ANDROID_SDK_SHA256=0bebf59339eaa534f4217f8aa0972d14dc49e7207be225511073c661ae01da0a
 if [ "$TERMUX_NDK_VERSION" = "27c" ]; then
