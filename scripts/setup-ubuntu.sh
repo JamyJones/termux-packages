@@ -409,12 +409,14 @@ for key in $KEYS; do
 done
 
 # Final update attempt
-$SUDO apt-get -yq update
+if [[ 1 -ne 0 ]];then
+  $SUDO apt-get install -yq --no-install-recommends gcc g++ clang #$PACKAGES
+  return 0
+fi
 
 $SUDO env DEBIAN_FRONTEND=noninteractive \
 	apt-get install -yq --no-install-recommends gcc g++ clang #$PACKAGES
-
-$SUDO locale-gen --purge en_US.UTF-8
+SUDO locale-gen --purge en_US.UTF-8
 echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' | $SUDO tee -a /etc/default/locale
 
 . $(dirname "$(realpath "$0")")/properties.sh
