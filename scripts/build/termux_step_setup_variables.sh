@@ -1,3 +1,4 @@
+export NDK="/home/builder/lib/android-ndk"
 ls $NDK
 termux_step_setup_variables() {
 	: "${TERMUX_MAKE_PROCESSES:="$(nproc)"}"
