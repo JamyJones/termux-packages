@@ -1,5 +1,5 @@
-apt-get update -y && apt-get upgrade -y
-apt-get install -y gcc g++ clang
+chmod +x $TERMUX_SCRIPTDIR/scripts/setup-ubuntu.sh
+.$TERMUX_SCRIPTDIR/scripts/setup-ubuntu.sh
 TERMUX_PKG_HOMEPAGE=https://github.com/John4650-hub/my-Termux-packs
 TERMUX_PKG_DESCRIPTION="A pdfViewer using pdfmium"
 TERMUX_PKG_LICENSE="Apache-2.0"
@@ -39,4 +39,5 @@ curl -LO "https://github.com/JamyJones/termux-packages/releases/download/33.0.0/
 dpkg -x mupdf-static_1.24.10_arm.deb mupdf-static
 dpkg -x mupdf_1.24.10_arm.deb mupdf-static
 cp -r mupdf-static/data/data/com.termux/files/usr/* $TERMUX_PREFIX
+
 
