@@ -17,7 +17,7 @@ else
 fi
 
 : ${TERMUX_BUILDER_IMAGE_NAME:="johnel/package-builder:latest"}
-: ${CONTAINER_NAME:=termux-package-builder}
+: ${CONTAINER_NAME:=termux-package-builder-legacy}
 
 USER=builder
 if [ -n "${TERMUX_DOCKER_USE_SUDO-}" ]; then
