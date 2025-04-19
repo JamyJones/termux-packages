@@ -33,7 +33,7 @@ if [ ! -d "$ANDROID_HOME" ]; then
 	echo "$ANDROID_SDK_SHA256 tools-$TERMUX_SDK_REVISION.zip
 " | sha256sum  -c -
 	rm -Rf android-sdk-$TERMUX_SDK_REVISION
-	unzip -q tools-$TERMUX_SDK_REVISION.zip -d android-sdk-$TERMUX_SDK_REVISION
+	unzip -q tools-$TERMUX_SDK_REVISION.zip -d ./
 fi
 
 if [ ! -d "$NDK" ]; then
@@ -47,12 +47,12 @@ if [ ! -d "$NDK" ]; then
 		-o ndk-r${TERMUX_NDK_VERSION}.zip
 		echo "$ANDROID_NDK_SHA256 ndk-r${TERMUX_NDK_VERSION}.zip" | sha256sum -c -
 	rm -Rf android-ndk-r$TERMUX_NDK_VERSION
-	unzip -q ndk-r${TERMUX_NDK_VERSION}.zip
+	unzip -q ndk-r${TERMUX_NDK_VERSION}.zip ./
 
 	# Remove unused parts
 	rm -Rf android-ndk-r$TERMUX_NDK_VERSION/sources/cxx-stl/system
 fi
-SDK_MANAGER="$ANDROID_HOME/../android-sdk-9123335/cmdline-tools/bin/sdkmanager"
+SDK_MANAGER="$ANDROID_HOME/cmdline-tools/bin/sdkmanager"
 
 echo "INFO: Using sdkmanager ... $SDK_MANAGER"
 echo "INFO: Using NDK ... $NDK"
