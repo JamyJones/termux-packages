@@ -1,5 +1,5 @@
 chmod +x $TERMUX_SCRIPTDIR/scripts/setup-ubuntu.sh
-.$TERMUX_SCRIPTDIR/scripts/setup-ubuntu.sh
+$TERMUX_SCRIPTDIR/scripts/setup-ubuntu.sh
 TERMUX_PKG_HOMEPAGE=https://github.com/John4650-hub/my-Termux-packs
 TERMUX_PKG_DESCRIPTION="A pdfViewer using pdfmium"
 TERMUX_PKG_LICENSE="Apache-2.0"
