@@ -52,7 +52,7 @@ if [ ! -d "$NDK" ]; then
 	# Remove unused parts
 	rm -Rf android-ndk-r$TERMUX_NDK_VERSION/sources/cxx-stl/system
 fi
-SDK_MANAGER="$ANDROID_HOME/android-sdk-9123335/cmdline-tools/bin/sdkmanager"
+SDK_MANAGER="$ANDROID_HOME/../android-sdk-9123335/cmdline-tools/bin/sdkmanager"
 
 echo "INFO: Using sdkmanager ... $SDK_MANAGER"
 echo "INFO: Using NDK ... $NDK"
