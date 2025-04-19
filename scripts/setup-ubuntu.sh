@@ -332,7 +332,7 @@ fi
 $SUDO dpkg --add-architecture i386
 
   # Add apt.llvm.org repo to get newer LLVM than Ubuntu provided
-sudo ls /etc/apt/trusted.gpg.d/
+sudo chmod -R a+rw /etc/apt/
 sudo cat<< EOF>/etc/apt/trusted.gpg.d/apt.llvm.org.asc
 
   -----BEGIN PGP PUBLIC KEY BLOCK-----
