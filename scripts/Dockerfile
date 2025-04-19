@@ -30,8 +30,8 @@ RUN adduser --disabled-password --shell /bin/bash --gecos "" builder && \
 	rm -rf /var/lib/apt/lists/* && \
 	cd /home/builder/lib/android-ndk/ && \
 	rm -Rf sources/cxx-stl/system && \
-	cd /home/builder/lib/android-sdk/tools && \
-	rm -Rf emulator* lib* proguard templates
+	cd /home/builder/lib/android-sdk/cmdline-tools && \
+	rm -Rf lib*
 
 # Switch User
 USER builder:builder
