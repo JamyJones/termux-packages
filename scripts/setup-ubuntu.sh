@@ -388,7 +388,7 @@ bXb5c6gCHESH5PXwPU4jQEE7Ib9J6sbk7ZT2Mw==
 =j+4q
 -----END PGP PUBLIC KEY BLOCK-----
 EOF
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5CF4D18AF4F7421
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5CF4D18AF4F7421
 $SUDO chmod a+r /etc/apt/trusted.gpg.d/apt.llvm.org.asc
   {
     echo "deb [arch=amd64] http://apt.llvm.org/noble/ llvm-toolchain-noble-18 main"
