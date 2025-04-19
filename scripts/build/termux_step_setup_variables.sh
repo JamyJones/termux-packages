@@ -1,4 +1,3 @@
-#!/bin/bash
 termux_step_setup_variables() {
 	: "${TERMUX_MAKE_PROCESSES:="$(nproc)"}"
 	: "${TERMUX_TOPDIR:="$HOME/.termux-build"}"
@@ -12,7 +11,7 @@ termux_step_setup_variables() {
 	: "${TERMUX_INSTALL_DEPS:="false"}"
 	: "${TERMUX_FORCE_BUILD:="false"}"
 	: "${TERMUX_PACKAGES_DIRECTORIES:="packages"}"
-
+  : "${NDK:="/home/builder/lib/android-ndk"}"
 	if [ "$TERMUX_ON_DEVICE_BUILD" = "true" ]; then
 		# For on-device builds cross-compiling is not supported so we can
 		# store information about built packages under $TERMUX_TOPDIR.
