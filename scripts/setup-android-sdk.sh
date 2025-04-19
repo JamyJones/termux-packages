@@ -52,7 +52,8 @@ if [ ! -d "$NDK" ]; then
 	# Remove unused parts
 	rm -Rf ./sources/cxx-stl/system
 fi
-SDK_MANAGER="$ANDROID_HOME/cmdline-tools/bin/sdkmanager"
+export SDK_MANAGER="$ANDROID_HOME/cmdline-tools/bin/sdkmanager"
+export NDK=$NDK
 
 echo "INFO: Using sdkmanager ... $SDK_MANAGER"
 echo "INFO: Using NDK ... $NDK"
