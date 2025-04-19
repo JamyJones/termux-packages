@@ -411,7 +411,7 @@ done
 # Final update attempt
 if [[ 1 -ne 0 ]];then
   $SUDO apt-get install -yq --no-install-recommends gcc g++ clang #$PACKAGES
-  return 0
+  exit 0
 fi
 
 $SUDO env DEBIAN_FRONTEND=noninteractive \
