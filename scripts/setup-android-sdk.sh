@@ -28,9 +28,10 @@ if [ ! -d "$ANDROID_HOME" ]; then
 
 	# https://developer.android.com/studio/index.html#command-tools
 	echo "Downloading Android SDK..."
-	termux_download https://dl.google.com/android/repository/${ANDROID_SDK_FILE} \
-		tools-$TERMUX_SDK_REVISION.zip \
-		$ANDROID_SDK_SHA256
+	curl -L --fail --retry 3  https://dl.google.com/android/repository/${ANDROID_SDK_FILE} \
+		-o tools-$TERMUX_SDK_REVISION.zip
+	echo "$ANDROID_SDK_SHA256 tools-$TERMUX_SDK_REVISION.zip
+" | sha256sum  -c -
 	rm -Rf android-sdk-$TERMUX_SDK_REVISION
 	unzip -q tools-$TERMUX_SDK_REVISION.zip -d android-sdk-$TERMUX_SDK_REVISION
 fi
@@ -42,9 +43,9 @@ if [ ! -d "$NDK" ]; then
 
 	# https://developer.android.com/ndk/downloads
 	echo "Downloading Android NDK..."
-	termux_download https://dl.google.com/android/repository/${ANDROID_NDK_FILE} \
-		ndk-r${TERMUX_NDK_VERSION}.zip \
-		$ANDROID_NDK_SHA256
+	curl -L --fail --retry 3 https://dl.google.com/android/repository/${ANDROID_NDK_FILE} \
+		-o ndk-r${TERMUX_NDK_VERSION}.zip
+		echo "$ANDROID_NDK_SHA256 ndk-r${TERMUX_NDK_VERSION}.zip" | sha256sum -c -
 	rm -Rf android-ndk-r$TERMUX_NDK_VERSION
 	unzip -q ndk-r${TERMUX_NDK_VERSION}.zip
 
