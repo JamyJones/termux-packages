@@ -13,7 +13,6 @@ jobs:
         john_package_name="pdfmium_viewer"
         export TERMUX_BUILDER_IMAGE_NAME=johnel/package-builder
         export CONTAINER_NAME=termux-package-builder-legacy
-        export NDK="/home/builder/lib/android-ndk"
         sudo ./scripts/run-docker.sh bash -c "sudo ./build-package.sh -o ./output -I -a arm $john_package_name"
     - name: release
       run: |
