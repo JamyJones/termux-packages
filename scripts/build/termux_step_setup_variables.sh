@@ -1,4 +1,4 @@
-ls -a /home | true
+ls -a /home
 echo "$HOME"
 termux_step_setup_variables() {
 	: "${TERMUX_MAKE_PROCESSES:="$(nproc)"}"
