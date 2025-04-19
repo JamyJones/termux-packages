@@ -16,8 +16,8 @@ else
 	VOLUME=$PWD:$CONTAINER_HOME_DIR/termux-packages
 fi
 
-: ${TERMUX_BUILDER_IMAGE_NAME:="termux/package-builder:legacy"}
-: ${CONTAINER_NAME:=termux-package-builder-legacy-android5}
+: ${TERMUX_BUILDER_IMAGE_NAME:="johnel/package-builder:latest"}
+: ${CONTAINER_NAME:=termux-package-builder}
 
 USER=builder
 if [ -n "${TERMUX_DOCKER_USE_SUDO-}" ]; then
