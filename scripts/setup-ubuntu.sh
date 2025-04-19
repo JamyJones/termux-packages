@@ -397,7 +397,7 @@ sudo sed -i -e 's|http://archive.ubuntu.com/ubuntu|http://old-releases.ubuntu.co
 sudo sed -i -e 's|http://security.ubuntu.com/ubuntu|http://old-releases.ubuntu.com/ubuntu|g' /etc/apt/sources.list
 
 # Attempt update and capture errors
-sudo apt-get -yq update 2>apt-update-errors.log
+sudo apt-get -yq update >apt-update-errors.log 2>&1 || true
 
 # Extract missing keys from update errors
 KEYS=$(grep "NO_PUBKEY" apt-update-errors.log | awk '{print $NF}' | sort -u)
