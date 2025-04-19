@@ -16,7 +16,7 @@ else
 	VOLUME=$PWD:$CONTAINER_HOME_DIR/termux-packages
 fi
 
-: ${TERMUX_BUILDER_IMAGE_NAME:="johnel/package-builder:latest"}
+: ${TERMUX_BUILDER_IMAGE_NAME:="termux/package-builder:legacy"}
 : ${CONTAINER_NAME:=termux-package-builder-legacy}
 
 USER=builder
