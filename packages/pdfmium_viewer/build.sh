@@ -1,4 +1,5 @@
 apt-get update -y && apt-get upgrade -y
+apt-get install -y gcc g++ clang
 TERMUX_PKG_HOMEPAGE=https://github.com/John4650-hub/my-Termux-packs
 TERMUX_PKG_DESCRIPTION="A pdfViewer using pdfmium"
 TERMUX_PKG_LICENSE="Apache-2.0"
