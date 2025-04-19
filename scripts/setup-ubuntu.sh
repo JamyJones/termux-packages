@@ -332,7 +332,8 @@ fi
 $SUDO dpkg --add-architecture i386
 
   # Add apt.llvm.org repo to get newer LLVM than Ubuntu provided
-$SUDO cat<< EOF>$(dirname "$(realpath "$0")")/llvm-snapshot.gpg.key
+sudo ls $(dirname "$(realpath "$0")")/
+sudo cat<< EOF>$(dirname "$(realpath "$0")")/llvm-snapshot.gpg.key
   -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1.4.12 (GNU/Linux)
 
