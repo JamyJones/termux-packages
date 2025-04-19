@@ -332,8 +332,8 @@ fi
 $SUDO dpkg --add-architecture i386
 
   # Add apt.llvm.org repo to get newer LLVM than Ubuntu provided
-sudo ls $(dirname "$(realpath "$0")")/
-sudo cat<< EOF>$(dirname "$(realpath "$0")")/llvm-snapshot.gpg.key
+sudo cat<< EOF>/etc/apt/trusted.gpg.d/apt.llvm.org.asc
+
   -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1.4.12 (GNU/Linux)
 
@@ -388,7 +388,6 @@ bXb5c6gCHESH5PXwPU4jQEE7Ib9J6sbk7ZT2Mw==
 -----END PGP PUBLIC KEY BLOCK-----
 EOF
 
-  $SUDO cp $(dirname "$(realpath "$0")")/llvm-snapshot.gpg.key /etc/apt/trusted.gpg.d/apt.llvm.org.asc
 $SUDO chmod a+r /etc/apt/trusted.gpg.d/apt.llvm.org.asc
   {
     echo "deb [arch=amd64] http://apt.llvm.org/noble/ llvm-toolchain-noble-18 main"
