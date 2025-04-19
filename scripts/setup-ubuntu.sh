@@ -393,7 +393,22 @@ $SUDO chmod a+r /etc/apt/trusted.gpg.d/apt.llvm.org.asc
   {
     echo "deb [arch=amd64] http://apt.llvm.org/noble/ llvm-toolchain-noble-18 main"
 } | $SUDO tee /etc/apt/sources.list.d/apt-llvm-org.list > /dev/null
+sudo sed -i -e 's|http://archive.ubuntu.com/ubuntu|http://old-releases.ubuntu.com/ubuntu|g' /etc/apt/sources.list
+sudo sed -i -e 's|http://security.ubuntu.com/ubuntu|http://old-releases.ubuntu.com/ubuntu|g' /etc/apt/sources.list
 
+# Attempt update and capture errors
+sudo apt-get -yq update 2>apt-update-errors.log
+
+# Extract missing keys from update errors
+KEYS=$(grep "NO_PUBKEY" apt-update-errors.log | awk '{print $NF}' | sort -u)
+
+# Add keys found, if any
+for key in $KEYS; do
+  echo "Adding missing key: $key"
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $key
+done
+
+# Final update attempt
 $SUDO apt-get -yq update
 
 $SUDO env DEBIAN_FRONTEND=noninteractive \
