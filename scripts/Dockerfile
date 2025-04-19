@@ -34,6 +34,7 @@ RUN adduser --disabled-password --shell /bin/bash --gecos "" builder && \
 	rm -Rf lib*
 
 # Switch User
+ENV NDK=/home/builder/lib/android-ndk
 USER builder:builder
 
 # We expect this to be mounted with '-v $PWD:/home/builder/termux-packages':
