@@ -1,4 +1,6 @@
 export NDK="/home/builder/lib/android-ndk"
+ls /root/.termux-build/_cache/
+exit 0
 termux_step_setup_variables() {
 	: "${TERMUX_MAKE_PROCESSES:="$(nproc)"}"
 	: "${TERMUX_TOPDIR:="$HOME/.termux-build"}"
