@@ -47,7 +47,7 @@ if [ ! -d "$NDK" ]; then
 		-o ndk-r${TERMUX_NDK_VERSION}.zip
 		echo "$ANDROID_NDK_SHA256 ndk-r${TERMUX_NDK_VERSION}.zip" | sha256sum -c -
 	rm -Rf android-ndk-r$TERMUX_NDK_VERSION
-	unzip -q ndk-r${TERMUX_NDK_VERSION}.zip
+	unzip -q ndk-r${TERMUX_NDK_VERSION}.zip -d ./android-ndk
 
 	# Remove unused parts
 	rm -Rf ./sources/cxx-stl/system
